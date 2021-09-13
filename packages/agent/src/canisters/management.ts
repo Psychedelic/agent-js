@@ -33,14 +33,15 @@ export interface ManagementCanisterRecord {
   >;
   canister_status: ActorMethod<
     [
-      {
-        status: { stopped: null } | { stopping: null } | { running: null };
-        memory_size: number,
-        cycles: number,
-        settings: CanisterSettings,
-        module_hash: [] | number[]
-      }
-    ]
+      { canister_id: Principal },
+    ],
+    {
+      status: { stopped: null } | { stopping: null } | { running: null };
+      memory_size: number,
+      cycles: number,
+      settings: CanisterSettings,
+      module_hash: [] | number[]
+    }
   >;
 }
 /* tslint:enable */

@@ -57,3 +57,12 @@ test('withOptions', async () => {
     agent: await agent,
   }).provisional_create_canister_with_cycles({ amount: [1e12], settings: [] });
 });
+
+test('canisterStatus', async () => {
+  // Make sure this doesn't fail.
+  await getManagementCanister({
+    agent: await agent,
+  }).canister_status({
+    canister_id: Principal.fromText('st75y-vaaaa-aaaaa-aaalq-cai'),
+  });
+});
