@@ -34,5 +34,22 @@ export default ({ IDL }) => {
       [],
       [],
     ),
+    canister_status: IDL.Func(
+      [IDL.Record({ canister_id })],
+      [
+        IDL.Record({
+          status: IDL.Variant({
+            stopped: IDL.Null,
+            stopping: IDL.Null,
+            running: IDL.Null,
+          }),
+          memory_size: IDL.Nat,
+          cycles: IDL.Nat,
+          settings: CanisterSettings,
+          module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+        }),
+      ],
+      [],
+    ),
   });
 };
