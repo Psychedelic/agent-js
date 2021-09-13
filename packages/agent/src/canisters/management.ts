@@ -31,6 +31,17 @@ export interface ManagementCanisterRecord {
     ],
     void
   >;
+  canister_status: ActorMethod<
+    [
+      {
+        status: { stopped: null } | { stopping: null } | { running: null };
+        memory_size: number,
+        cycles: number,
+        settings: CanisterSettings,
+        module_hash: [] | number[]
+      }
+    ]
+  >;
 }
 /* tslint:enable */
 
